@@ -9,7 +9,7 @@ The paper we mainly refer to when implementing this library is
 
 ## Environment Requirements
 - Go: version 1.9 is OK.
-- OS: Windows 7/8 and Linux 16.04 have been tested OK.
+- OS: Windows 8 and Ubuntu 16.04 is OK.
 
 ## Structure of this repo
 - ```/src```: The source code of this project. There are three main components(poly, secretshare, mpc) in this library. 
@@ -34,7 +34,7 @@ In Linear MPC, a given number of participants <i>p</i><sub>1</sub>, <i>p</i><sub
 each has private data, respectively <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, ..., <i>x<sub>n</sub></i>.
 Participants want to compute the value of a public function on the private data:
 <i>f</i>(<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, ..., <i>x<sub>n</sub></i>)
-while keeping their own inputs secret， if there are no more than <i>t</i>&lt;<i>n</i>/2 semi-honest
+while keeping their own inputs secret, if there are no more than <i>t</i>&lt;<i>n</i>/2 semi-honest
 adversaries.
 
 A linear function is in the form <i>f</i>(<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, ..., <i>x<sub>n</sub></i>)
