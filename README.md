@@ -8,18 +8,23 @@ The paper we mainly refer to when implementing this library is
 "Asharov, Gilad , and Y. Lindell . "A Full Proof of the BGW Protocol for Perfectly Secure Multiparty Computation." Journal of Cryptology 30(2015):1-94.". 
 
 ## Environment Requirements
-- Go: version 1.9 is OK.
-- OS: Windows 8 and Ubuntu 16.04 is OK.
+- Golang: version 1.9+.
+
+## How to use it
+You can simply import our mpc module as a normal Golang package.
+```
+git clone git@github.com:zhengjilai/BGW-SecureLinearMultiPartyComputation.git
+mkdir -p $GOPATH/src
+cp -r BGW-SecureLinearMultiPartyComputation/loccs.sjtu.edu.cn $GOPATH/src
+```
 
 ## Structure of this repo
-- ```/src```: The source code of this project. There are three main components(poly, secretshare, mpc) in this library. 
-
-- ```/src/loccs.sjtu.edu.cn/acrypto/poly``` implements the calculation of polynomial over <i>Zp</i> with single variable 
+- ```/loccs.sjtu.edu.cn/acrypto/poly``` implements the calculation of polynomial over <i>Zp</i> with single variable 
 and a system of solving linear equations over <i>Zp</i>.
 
-- ```/src/loccs.sjtu.edu.cn/acrypto/secretshare``` implements Shamir's secret sharing scheme over <i>Zp</i>.
+- ```/loccs.sjtu.edu.cn/acrypto/secretshare``` implements Shamir's secret sharing scheme over <i>Zp</i>.
 
-- ```/src/loccs.sjtu.edu.cn/acrypto/mpc``` implements BGW Linear MultiParty Computation, where everyone has an secret <i>x</i><sub>i</sub>, 
+- ```/loccs.sjtu.edu.cn/acrypto/mpc``` implements BGW Linear MultiParty Computation, where everyone has an secret <i>x</i><sub>i</sub>, 
 and they want to know the output of an linear function <i>f</i>(<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, ..., <i>x<sub>n</sub></i>)
 while not exposing their own secret (on condition that there are only <i>t</i>&lt;<i>n</i>/2 semi-honest adversaries).
 
@@ -45,7 +50,7 @@ are constants.
 - Note 1: In the scheme, all element should be in some <i>Zp</i>, i.e. should be non-negative integers.
 - Note 2: Each participant has a unique ID, start from 0 to <i>n</i>-1.
 
-## Writers
+## Contributors
 
 - [Haining Lu]()
 - [Jilai Zheng](https://github.com/zhengjilai)

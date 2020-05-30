@@ -21,24 +21,24 @@ func testShamirSecretSharingIntProcedure(participantCount int, threshold int, se
 	return func(t *testing.T) {
 		// constructing ShamirSecretSharingBigInt
 		shamirSecretSharingBigInt, err := NewShamirSecretSharingInt(participantCount,modulus)
-		if (err != nil) {t.Error(fmt.Sprintf("Error happens when constructing ShamirSecretSharingBigInt: %s", err))}
+		if err != nil {t.Error(fmt.Sprintf("Error happens when constructing ShamirSecretSharingBigInt: %s", err))}
 		// constructing ThresholdAccessStructure
 		threAccessStruct, err := NewThresholdAccessStructure(participantCount,threshold)
-		if (err != nil) {t.Error(fmt.Sprintf("Error happens when constructing ThresholdAccessStructure: %s", err))}
+		if err != nil {t.Error(fmt.Sprintf("Error happens when constructing ThresholdAccessStructure: %s", err))}
 		// adding ThresholdAccessStructure
 		err = shamirSecretSharingBigInt.SetAccessStructure(threAccessStruct)
-		if (err != nil) {t.Error(fmt.Sprintf("Error happens when adding ThresholdAccessStructure: %s", err))}
+		if err != nil {t.Error(fmt.Sprintf("Error happens when adding ThresholdAccessStructure: %s", err))}
 		// generating shares
 		//auxi := shamirSecretSharingBigInt.CreateDefaultAuxiliary()
 		auxi := shamirSecretSharingBigInt.GenerateRandomAuxiliary()
 		shares, err:= shamirSecretSharingBigInt.GenerateShares(secret,auxi)
-		if (err != nil) {t.Error(fmt.Sprintf("Error happens when generating shares: %s", err))}
+		if err != nil {t.Error(fmt.Sprintf("Error happens when generating shares: %s", err))}
 
 		// calculating shares
 		secretNew, err := shamirSecretSharingBigInt.CalculateSecret(shares)
-		if (err != nil) {t.Error(fmt.Sprintf("Error happens when calculating secret: %s", err))}
+		if err != nil {t.Error(fmt.Sprintf("Error happens when calculating secret: %s", err))}
 
-		if (secretNew.(int) != secret) {
+		if secretNew.(int) != secret {
 			t.Error(fmt.Sprintf("Calculate Result is False, Result:%d ,Expected: %d",secretNew,secret))
 		}else{
 			t.Log(fmt.Sprintf("Calculate Result is True, Result:%d ,Expected %d",secretNew,secret))

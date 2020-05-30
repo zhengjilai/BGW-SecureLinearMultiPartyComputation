@@ -7,9 +7,9 @@ import (
 
 func TestNewLinearEquationSystemInt(t *testing.T) {
 	varCount := 6
-	leq, error := NewLinearEquationSystemInt(varCount,13)
-	if (error != nil) {
-		t.Error(fmt.Sprintf("Error happens when constructing the LinearEquationSystem: %s",error))
+	leq, err := NewLinearEquationSystemInt(varCount,13)
+	if err != nil {
+		t.Error(fmt.Sprintf("Error happens when constructing the LinearEquationSystem: %s", err))
 	}
 	coeTest := [][]int{  {2, 3, 5, 7, 9, 5},
 		                 {3, 4, 3, 6, 7, 6},
@@ -22,16 +22,16 @@ func TestNewLinearEquationSystemInt(t *testing.T) {
 	for i:=0;i < varCount; i++{
 		oneEquation := make([]interface{},varCount)
 		for j:=0; j < varCount ; j++ {oneEquation[j] = coeTest[i][j]}
-		error := leq.AddEquation(oneEquation,solTest[i])
-		if (error != nil) {t.Error(fmt.Sprintf("Error happens when adding a LinearEquation: %s",error))}
+		err := leq.AddEquation(oneEquation,solTest[i])
+		if err != nil {t.Error(fmt.Sprintf("Error happens when adding a LinearEquation: %s", err))}
 	}
-	result, error := leq.Solve()
-	if (error != nil) {t.Error(fmt.Sprintf("Error happens when solving LinearEquationSystem: %s",error))}
+	result, err := leq.Solve()
+	if err != nil {t.Error(fmt.Sprintf("Error happens when solving LinearEquationSystem: %s", err))}
 
 	// true solution
 	trueSolution := []int{1,10,2,12,1,8}
 	for i:=0;i < varCount;i++ {
-		if (result[i].(int) != (trueSolution[i])){
+		if result[i].(int) != (trueSolution[i]) {
 			t.Error(fmt.Sprintf("Error happens when solving LinearEquationSystem: Solution is wrong"))
 			break
 		}
@@ -41,9 +41,9 @@ func TestNewLinearEquationSystemInt(t *testing.T) {
 
 func TestNewLinearEquationSystemIntNoSolutions(t *testing.T) {
 	varCount := 6
-	leq, error := NewLinearEquationSystemInt(varCount,13)
-	if (error != nil) {
-		t.Error(fmt.Sprintf("Error happens when constructing the LinearEquationSystem: %s",error))
+	leq, err := NewLinearEquationSystemInt(varCount,13)
+	if err != nil {
+		t.Error(fmt.Sprintf("Error happens when constructing the LinearEquationSystem: %s", err))
 	}
 	coeTest := [][]int{  {2, 3, 5, 7, 9, 5},
 		                 {3, 4, 3, 6, 7, 6},
@@ -56,20 +56,20 @@ func TestNewLinearEquationSystemIntNoSolutions(t *testing.T) {
 	for i:=0;i < varCount; i++{
 		oneEquation := make([]interface{},varCount)
 		for j:=0; j < varCount ; j++ {oneEquation[j] = coeTest[i][j]}
-		error := leq.AddEquation(oneEquation,solTest[i])
-		if (error != nil) {t.Error(fmt.Sprintf("Error happens when adding a LinearEquation: %s",error))}
+		err := leq.AddEquation(oneEquation,solTest[i])
+		if err != nil {t.Error(fmt.Sprintf("Error happens when adding a LinearEquation: %s", err))}
 	}
-	result, error := leq.Solve()
-	if (error != nil) {
-		t.Error(fmt.Sprintf("Error happens when solving LinearEquationSystem: %s",error))
-	} else {t.Log(fmt.Sprintf("Solution of the LinearEquationSystem: %d",result))}
+	result, err := leq.Solve()
+	if err != nil {
+		t.Log(fmt.Sprintf("Expected error happens when solving LinearEquationSystem: %s", err))
+	} else {t.Error(fmt.Sprintf("Solution of the LinearEquationSystem: %d",result))}
 }
 
 func TestNewLinearEquationSystemIntInfiniteSolutions(t *testing.T) {
 	varCount := 6
-	leq, error := NewLinearEquationSystemInt(varCount,13)
-	if (error != nil) {
-		t.Error(fmt.Sprintf("Error happens when constructing the LinearEquationSystem: %s",error))
+	leq, err := NewLinearEquationSystemInt(varCount,13)
+	if err != nil {
+		t.Error(fmt.Sprintf("Error happens when constructing the LinearEquationSystem: %s", err))
 	}
 	coeTest := [][]int{  {2, 3, 5, 7, 9, 5},
 		{3, 4, 3, 6, 7, 6},
@@ -82,12 +82,12 @@ func TestNewLinearEquationSystemIntInfiniteSolutions(t *testing.T) {
 	for i:=0;i < varCount; i++{
 		oneEquation := make([]interface{},varCount)
 		for j:=0; j < varCount ; j++ {oneEquation[j] = coeTest[i][j]}
-		error := leq.AddEquation(oneEquation,solTest[i])
-		if (error != nil) {t.Error(fmt.Sprintf("Error happens when adding a LinearEquation: %s",error))}
+		err := leq.AddEquation(oneEquation,solTest[i])
+		if err != nil {t.Error(fmt.Sprintf("Error happens when adding a LinearEquation: %s", err))}
 	}
-	result, error := leq.Solve()
-	if (error != nil) {
-		t.Error(fmt.Sprintf("Error happens when solving LinearEquationSystem: %s",error))
-	} else {t.Log(fmt.Sprintf("Solution of the LinearEquationSystem: %d",result))}
+	result, err := leq.Solve()
+	if err != nil {
+		t.Log(fmt.Sprintf("Expected error happens when solving LinearEquationSystem: %s", err))
+	} else {t.Error(fmt.Sprintf("Solution of the LinearEquationSystem: %d",result))}
 }
 
