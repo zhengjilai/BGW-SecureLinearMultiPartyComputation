@@ -12,7 +12,7 @@ The paper we mainly refer to when implementing this library is
 
 ## How to use it
 You can simply import our mpc module as a normal Golang package.
-```
+```shell
 git clone git@github.com:zhengjilai/BGW-SecureLinearMultiPartyComputation.git
 mkdir -p $GOPATH/src
 cp -r BGW-SecureLinearMultiPartyComputation/loccs.sjtu.edu.cn $GOPATH/src
