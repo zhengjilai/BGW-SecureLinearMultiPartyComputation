@@ -1,7 +1,5 @@
 # BGW Secure Linear MultiParty Computation
-<b> A golang implementation of BGW - mpc</b>
 
-## Brief Introduction
 This project is a golang implementation of BGW Secure Linear MultiParty Computation, which supports int and big.Int of golang.
 
 The paper we mainly refer to when implementing this library is 
