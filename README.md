@@ -6,8 +6,8 @@ The paper we mainly refer to when implementing this package is
 "Asharov, Gilad , and Y. Lindell . "A Full Proof of the BGW Protocol for Perfectly Secure Multiparty Computation." Journal of Cryptology 30(2015):1-94.". 
 
 
-## Principles and Functions
-LinearMultipartyComputation generalize the linear mpc scheme in "Ben-Or M, Goldwasser S, Wigderson A. Completeness theorems for non-cryptographic
+## Principles and Functionality
+LinearMultiPartyComputation generalize the linear mpc scheme in "Ben-Or M, Goldwasser S, Wigderson A. Completeness theorems for non-cryptographic
 fault-tolerant distributed computation. InProceedings of the twentieth annual ACM symposium on Theory of computing 1988 Jan 1 (pp. 1-10). ACM."
 
 In Linear MPC, a given number of participants <i>p</i><sub>1</sub>, <i>p</i><sub>2</sub>, ..., <i>p<sub>n</sub></i>,
@@ -30,7 +30,7 @@ are constants.
 This package is implemented in Golang (version 1.9+), without any external dependencies.
 
 You can simply import our linear mpc module as a normal Golang package.
-```shell
+```shell 
 git clone https://github.com/zhengjilai/BGW-SecureLinearMultiPartyComputation.git
 mkdir -p $GOPATH/src
 cp -r BGW-SecureLinearMultiPartyComputation/loccs.sjtu.edu.cn $GOPATH/src
@@ -53,7 +53,11 @@ We also provide an easy explanation of BGW-mpc Multiplication gate, although we 
 
 ## Contributors
 
+This mpc package is only written for study, and should never be leveraged for production.
+
+All contributors of this repository come from Lab of Cryptology and Computer Security, SJTU.
+
 - [Haining Lu]()
 - [Jilai Zheng](https://github.com/zhengjilai)
 
-Both from Lab of Cryptology and Computer Security, SJTU.
+
