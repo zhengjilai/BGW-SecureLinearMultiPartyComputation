@@ -7,8 +7,8 @@ The paper we mainly refer to when implementing this package is
 
 
 ## Principles and Functionality
-LinearMultiPartyComputation generalize the linear mpc scheme in "Ben-Or M, Goldwasser S, Wigderson A. Completeness theorems for non-cryptographic
-fault-tolerant distributed computation. InProceedings of the twentieth annual ACM symposium on Theory of computing 1988 Jan 1 (pp. 1-10). ACM."
+LinearMultiPartyComputation generalizes the linear mpc scheme in "Ben-Or M, Goldwasser S, Wigderson A. Completeness theorems for non-cryptographic
+fault-tolerant distributed computation. In Proceedings of the twentieth annual ACM symposium on Theory of computing 1988 Jan 1 (pp. 1-10). ACM."
 
 In Linear MPC, a given number of participants <i>p</i><sub>1</sub>, <i>p</i><sub>2</sub>, ..., <i>p<sub>n</sub></i>,
 each has private data, respectively <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, ..., <i>x<sub>n</sub></i>.
@@ -23,13 +23,14 @@ A linear function is in the form <i>f</i>(<i>x</i><sub>1</sub>, <i>x</i><sub>2</
 are constants.
 
 - Note 1: In the scheme, all element should be in some <i>Zp</i>, i.e. should be non-negative integers.
-- Note 2: Each participant has a unique ID, start from 0 to <i>n</i>-1.
+- Note 2: Each participant has a unique ID, starting from 0 to <i>n</i>-1.
 
 ## Usage
 
 This package is implemented in Golang (version 1.9+), without any external dependencies.
 
 You can simply import our linear mpc module as a normal Golang package.
+
 ```shell 
 git clone https://github.com/zhengjilai/BGW-SecureLinearMultiPartyComputation.git
 mkdir -p $GOPATH/src
